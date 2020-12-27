@@ -147,5 +147,9 @@ namespace KP
         {
             InputCheckEquat1(e);
         }
+        private void lox()
+        {
+
+        }
     }
 }
