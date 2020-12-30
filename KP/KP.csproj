@@ -47,7 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AptekaData.cs" />
     <Compile Include="Equat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,12 +67,6 @@
       <DependentUpon>Integ.cs</DependentUpon>
     </Compile>
     <Compile Include="Integral.cs" />
-    <Compile Include="Apteka.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Apteka.Designer.cs">
-      <DependentUpon>Apteka.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Equat.resx">
@@ -84,9 +77,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Integ.resx">
       <DependentUpon>Integ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Apteka.resx">
-      <DependentUpon>Apteka.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

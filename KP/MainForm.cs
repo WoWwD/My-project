@@ -21,8 +21,7 @@ namespace KP
         {
             if (e.KeyCode == Keys.D1)
             {
-                Apteka frm2 = new Apteka();
-                frm2.Show();
+                //System.Diagnostics.Process.Start(Application.StartupPath + @"\.exe");
             }
             if (e.KeyCode == Keys.D2)
             {
