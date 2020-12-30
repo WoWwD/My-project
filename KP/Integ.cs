@@ -117,12 +117,12 @@ namespace KP
                     throw new Exception("Интервалы не могут быть равны!");
                 }
                 if (Convert.ToInt32(InputIntegChartB.Text) - Convert.ToInt32(InputIntegChartA.Text) <
-                    Convert.ToDouble(InputIntegChartN.Text))
+                    Convert.ToInt32(InputIntegChartN.Text))
                 {
                     InputIntegChartN.Text = string.Empty;
                     throw new Exception("Количество делений не может быть равно такому значению!");
                 }
-                if (Convert.ToDouble(InputIntegChartN.Text) == 0)
+                if (Convert.ToInt32(InputIntegChartN.Text) == 0)
                 {
                     InputIntegChartN.Text = string.Empty;
                     throw new Exception("Количество делений не может быть равно нулю!");

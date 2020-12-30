@@ -41,7 +41,7 @@ namespace KP
         {
             InputEquatChartA.MaxLength = 2;
             InputEquatChartB.MaxLength = 2;
-            InputEquatChartN.MaxLength = 2;
+            InputEquatChartN.MaxLength = 1;
             InputEquatX0.MaxLength = 6;
             InputEquatEps.MaxLength = 18;
             InputEquatEps.Text = "0,00001";
@@ -122,15 +122,30 @@ namespace KP
                     throw new Exception("Интервалы не могут быть равны!");
                 }
                 if (Convert.ToInt32(InputEquatChartB.Text) - Convert.ToInt32(InputEquatChartA.Text) <
-                    Convert.ToDouble(InputEquatChartN.Text))
+                    Convert.ToInt32(InputEquatChartN.Text) || Convert.ToInt32(InputEquatChartN.Text) == 0)
                 {
                     InputEquatChartN.Text = string.Empty;
                     throw new Exception("Количество делений не может быть равно такому значению!");
                 }
-                if (Convert.ToDouble(InputEquatChartN.Text) == 0)
+                if (Convert.ToInt32(InputEquatChartN.Text) > 3)
                 {
                     InputEquatChartN.Text = string.Empty;
-                    throw new Exception("Количество делений не может быть равно нулю!");
+                    throw new Exception("Количество делений не может быть больше трёх!");
+                }
+                if (Convert.ToInt32(InputEquatChartN.Text) == 3 && Convert.ToInt32(InputEquatChartA.Text) > 1)
+                {
+                    InputEquatChartA.Text = string.Empty;
+                    throw new Exception("Левый интервал не должен быть больше 1!");
+                }
+                if (Convert.ToInt32(InputEquatChartN.Text) == 2 && Convert.ToInt32(InputEquatChartA.Text) > 2)
+                {
+                    InputEquatChartA.Text = string.Empty;
+                    throw new Exception("Левый интервал не должен быть больше 2!");
+                }
+                if (Convert.ToInt32(InputEquatChartN.Text) == 1 && Convert.ToInt32(InputEquatChartA.Text) > 3)
+                {
+                    InputEquatChartA.Text = string.Empty;
+                    throw new Exception("Левый интервал не должен быть больше 3!");
                 }
                 CreateChartEquat(Convert.ToInt32(InputEquatChartA.Text), Convert.ToInt32(InputEquatChartB.Text), Convert.ToInt32(InputEquatChartN.Text));
             }
@@ -146,10 +161,6 @@ namespace KP
         private void InputEquatEps_KeyPress(object sender, KeyPressEventArgs e)
         {
             InputCheckEquat1(e);
-        }
-        private void lox()
-        {
-
         }
     }
 }
