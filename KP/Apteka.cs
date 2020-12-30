@@ -18,11 +18,15 @@ namespace KP
         {
             InitializeComponent();
         }
-        private BindingList<AptekaData> dataApt = new BindingList<AptekaData>();
-        private void Add()
+        List<AptekaData> dataApt = new List<AptekaData>();
+        private void Apteka_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = dataApt;
+            table.Columns.Add("Название", typeof(string));
+            table.Columns.Add("Производитель", typeof(string));
+            table.Columns.Add("Цена (руб.)", typeof(double));
+            table.Columns.Add("Скидка (%)", typeof(double));
+            table.Columns.Add("Цена со скидкой (руб.)", typeof(double));
+            dataGridView1.DataSource = table;
         }
         private void AddData_Click(object sender, EventArgs e)
         {
@@ -31,13 +35,17 @@ namespace KP
             {
                 dataApt.Add(new AptekaData
                 {
-                    name = textBoxInputName.Text,
-                    manufact = textBoxInputManufact.Text,
-                    price = Convert.ToDouble(textBoxInputPrice.Text),
-                    discount = Convert.ToDouble(textBoxInputDiscount.Text),
-                    discountedPrice = Convert.ToDouble(textBoxInputPrice.Text) - ((Convert.ToDouble(textBoxInputPrice.Text) * Convert.ToDouble(textBoxInputDiscount.Text) / 100))
+                    name = InputName.Text,
+                    manufact = InputManufact.Text,
+                    price = Convert.ToDouble(InputPrice.Text),
+                    discount = Convert.ToDouble(InputDiscount.Text),
+                    discountedPrice = Convert.ToDouble(InputPrice.Text) - ((Convert.ToDouble(InputPrice.Text) * Convert.ToDouble(InputDiscount.Text) / 100))
                 });
-                Add();
+                for (int i = 0; i < dataApt.Count; i++)
+                {
+
+                }
+                dataGridView1.DataSource = dataApt;
             }
             catch (Exception ex)
             {
@@ -121,18 +129,7 @@ namespace KP
         }
         private void DeleteSelectionData_Click(object sender, EventArgs e)
         {
-            dataApt.RemoveAt(dataGridView1.SelectedRows[0].Index);
-            Add();
-        }
-
-        private void Apteka_Load(object sender, EventArgs e)
-        {
-            //table.Columns.Add("Название",typeof(string));
-            //table.Columns.Add("Производитель", typeof(string));
-            //table.Columns.Add("Цена (руб.)", typeof(double));
-            //table.Columns.Add("Скидка (%)", typeof(double));
-            //table.Columns.Add("Цена со скидкой (руб.)", typeof(double));
-            //dataGridView1.DataSource = table;
+           
         }
     }
 }

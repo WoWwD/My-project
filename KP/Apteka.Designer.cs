@@ -38,12 +38,12 @@ namespace KP
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.AddData = new System.Windows.Forms.Button();
+            this.AddAptekaData = new System.Windows.Forms.Button();
             this.InputDataGroupBox = new System.Windows.Forms.GroupBox();
-            this.textBoxInputDiscount = new System.Windows.Forms.TextBox();
-            this.textBoxInputPrice = new System.Windows.Forms.TextBox();
-            this.textBoxInputManufact = new System.Windows.Forms.TextBox();
-            this.textBoxInputName = new System.Windows.Forms.TextBox();
+            this.InputDiscount = new System.Windows.Forms.TextBox();
+            this.InputPrice = new System.Windows.Forms.TextBox();
+            this.InputManufact = new System.Windows.Forms.TextBox();
+            this.InputName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -125,23 +125,23 @@ namespace KP
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // AddData
+            // AddAptekaData
             // 
-            this.AddData.Location = new System.Drawing.Point(253, 109);
-            this.AddData.Name = "AddData";
-            this.AddData.Size = new System.Drawing.Size(110, 52);
-            this.AddData.TabIndex = 6;
-            this.AddData.Text = "Добавить";
-            this.AddData.UseVisualStyleBackColor = true;
-            this.AddData.Click += new System.EventHandler(this.AddData_Click);
+            this.AddAptekaData.Location = new System.Drawing.Point(253, 109);
+            this.AddAptekaData.Name = "AddAptekaData";
+            this.AddAptekaData.Size = new System.Drawing.Size(110, 52);
+            this.AddAptekaData.TabIndex = 6;
+            this.AddAptekaData.Text = "Добавить";
+            this.AddAptekaData.UseVisualStyleBackColor = true;
+            this.AddAptekaData.Click += new System.EventHandler(this.AddData_Click);
             // 
             // InputDataGroupBox
             // 
-            this.InputDataGroupBox.Controls.Add(this.AddData);
-            this.InputDataGroupBox.Controls.Add(this.textBoxInputDiscount);
-            this.InputDataGroupBox.Controls.Add(this.textBoxInputPrice);
-            this.InputDataGroupBox.Controls.Add(this.textBoxInputManufact);
-            this.InputDataGroupBox.Controls.Add(this.textBoxInputName);
+            this.InputDataGroupBox.Controls.Add(this.AddAptekaData);
+            this.InputDataGroupBox.Controls.Add(this.InputDiscount);
+            this.InputDataGroupBox.Controls.Add(this.InputPrice);
+            this.InputDataGroupBox.Controls.Add(this.InputManufact);
+            this.InputDataGroupBox.Controls.Add(this.InputName);
             this.InputDataGroupBox.Controls.Add(this.label4);
             this.InputDataGroupBox.Controls.Add(this.label3);
             this.InputDataGroupBox.Controls.Add(this.label2);
@@ -153,33 +153,33 @@ namespace KP
             this.InputDataGroupBox.TabStop = false;
             this.InputDataGroupBox.Text = "Ввод данных";
             // 
-            // textBoxInputDiscount
+            // InputDiscount
             // 
-            this.textBoxInputDiscount.Location = new System.Drawing.Point(110, 115);
-            this.textBoxInputDiscount.Name = "textBoxInputDiscount";
-            this.textBoxInputDiscount.Size = new System.Drawing.Size(100, 22);
-            this.textBoxInputDiscount.TabIndex = 7;
+            this.InputDiscount.Location = new System.Drawing.Point(110, 115);
+            this.InputDiscount.Name = "InputDiscount";
+            this.InputDiscount.Size = new System.Drawing.Size(100, 22);
+            this.InputDiscount.TabIndex = 7;
             // 
-            // textBoxInputPrice
+            // InputPrice
             // 
-            this.textBoxInputPrice.Location = new System.Drawing.Point(113, 84);
-            this.textBoxInputPrice.Name = "textBoxInputPrice";
-            this.textBoxInputPrice.Size = new System.Drawing.Size(100, 22);
-            this.textBoxInputPrice.TabIndex = 6;
+            this.InputPrice.Location = new System.Drawing.Point(113, 84);
+            this.InputPrice.Name = "InputPrice";
+            this.InputPrice.Size = new System.Drawing.Size(100, 22);
+            this.InputPrice.TabIndex = 6;
             // 
-            // textBoxInputManufact
+            // InputManufact
             // 
-            this.textBoxInputManufact.Location = new System.Drawing.Point(127, 51);
-            this.textBoxInputManufact.Name = "textBoxInputManufact";
-            this.textBoxInputManufact.Size = new System.Drawing.Size(100, 22);
-            this.textBoxInputManufact.TabIndex = 5;
+            this.InputManufact.Location = new System.Drawing.Point(127, 51);
+            this.InputManufact.Name = "InputManufact";
+            this.InputManufact.Size = new System.Drawing.Size(100, 22);
+            this.InputManufact.TabIndex = 5;
             // 
-            // textBoxInputName
+            // InputName
             // 
-            this.textBoxInputName.Location = new System.Drawing.Point(176, 23);
-            this.textBoxInputName.Name = "textBoxInputName";
-            this.textBoxInputName.Size = new System.Drawing.Size(100, 22);
-            this.textBoxInputName.TabIndex = 4;
+            this.InputName.Location = new System.Drawing.Point(176, 23);
+            this.InputName.Name = "InputName";
+            this.InputName.Size = new System.Drawing.Size(100, 22);
+            this.InputName.TabIndex = 4;
             // 
             // label4
             // 
@@ -251,12 +251,12 @@ namespace KP
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.Button AddData;
+        private System.Windows.Forms.Button AddAptekaData;
         private System.Windows.Forms.GroupBox InputDataGroupBox;
-        private System.Windows.Forms.TextBox textBoxInputDiscount;
-        private System.Windows.Forms.TextBox textBoxInputPrice;
-        private System.Windows.Forms.TextBox textBoxInputManufact;
-        private System.Windows.Forms.TextBox textBoxInputName;
+        private System.Windows.Forms.TextBox InputDiscount;
+        private System.Windows.Forms.TextBox InputPrice;
+        private System.Windows.Forms.TextBox InputManufact;
+        private System.Windows.Forms.TextBox InputName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
