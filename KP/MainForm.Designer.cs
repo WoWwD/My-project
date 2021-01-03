@@ -56,9 +56,9 @@ namespace KP
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(6, 83);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(224, 20);
+            this.label3.Size = new System.Drawing.Size(118, 20);
             this.label3.TabIndex = 2;
-            this.label3.Text = "3. Уравнение (исправить)";
+            this.label3.Text = "3. Уравнение";
             // 
             // label2
             // 
@@ -66,9 +66,9 @@ namespace KP
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(6, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(212, 20);
+            this.label2.Size = new System.Drawing.Size(106, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "2. Интеграл (исправить)";
+            this.label2.Text = "2. Интеграл";
             // 
             // label1
             // 
@@ -76,9 +76,9 @@ namespace KP
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(6, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 20);
+            this.label1.Size = new System.Drawing.Size(310, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "1. Прог1 (исправить)";
+            this.label1.Text = "1. Аптека (консольное приложение)";
             // 
             // MainForm
             // 

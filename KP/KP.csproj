@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AptekaChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AptekaChart.Designer.cs">
+      <DependentUpon>AptekaChart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Equat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     <Compile Include="Integral.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AptekaChart.resx">
+      <DependentUpon>AptekaChart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Equat.resx">
       <DependentUpon>Equat.cs</DependentUpon>
     </EmbeddedResource>
