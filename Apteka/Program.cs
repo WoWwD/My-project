@@ -108,7 +108,7 @@ namespace Apteka
                         Console.Clear();
                         if (N != 0)
                         {
-                            Data.WriteToFile(d, @"C:\Users\kandr\Desktop\KP\Apteka.txt") ;
+                            Data.WriteToFile(d, @"D:\\apteka.txt");
                             MessageBox.Show("Товары были сохранены в файл Apteka.txt!");
                             goto Menu;
                         }
@@ -123,8 +123,8 @@ namespace Apteka
                         }
                     case ConsoleKey.D6:{
                         Console.Clear();
-                        Data.ReadFrFile(out N, out d, @"C:\Users\kandr\Desktop\KP\Apteka.txt");
-                        if (new FileInfo("Apteka.txt").Length == 0)
+                        Data.ReadFrFile(out N, out d, @"D:\\apteka.txt");
+                        if (new FileInfo(@"D:\\apteka.txt").Length == 0)
                         {
                             Console.WriteLine("Файл пустой!");
                             Console.WriteLine("Нажмите Enter для возврата в меню");

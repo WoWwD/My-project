@@ -26,7 +26,7 @@ namespace KP
         {
             try
             {
-                string path = @"C:\Users\kandr\Desktop\KP\Apteka.txt";
+                string path = @"D:\\apteka.txt";
                 int N = 1;
                 if (new FileInfo(path).Length == 0)
                 {

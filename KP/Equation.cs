@@ -12,10 +12,11 @@ namespace KP
         public static int nMax = 10;
         public static void CalcEquat(double X0, double Eps, out double Res, out double nRes)
         {
+            string path = @"D:\\log.txt";
             double x1;
             int n = 1; 
             x1 = X0 - (FuncEquat(X0) / dFuncEquat(X0));
-            StreamWriter sw = new StreamWriter(@"C:\Users\kandr\Desktop\KP\Log.txt");
+            StreamWriter sw = new StreamWriter(path);
             while (Math.Abs(x1 - X0) >= Eps && n <= nMax)
             {
                 n++;
