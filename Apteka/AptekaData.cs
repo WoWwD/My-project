@@ -75,7 +75,7 @@ namespace Apteka
         public static void WriteToFile(Apteka[] d, string path)
         {
             using (StreamWriter writer = new StreamWriter(path, false))
-            {  
+            {
                 foreach (Apteka s in d)
                 {
                     writer.WriteLine($"Название препарата: {s.name}");
@@ -138,7 +138,7 @@ namespace Apteka
                         {
                             str2 = line;
                             str2 = str2.Substring(str2.IndexOf(':') + 1);
-                            d[i].discountedPrice = d[i].price-(d[i].price* d[i].discount)/100;
+                            d[i].discountedPrice = d[i].price - (d[i].price * d[i].discount) / 100;
                         }
                         if (line.Contains('/'))
                         {
@@ -149,7 +149,7 @@ namespace Apteka
                 reader2.Close();
             }
         }
-        public static void SearchData(int N,Apteka[] d)
+        public static void SearchData(int N, Apteka[] d)
         {
             string atr;
             int n = 0;
@@ -169,6 +169,22 @@ namespace Apteka
                 Console.WriteLine("Таких товаров не найдено!");
             }
         }
-        
+        public static void Sort(Apteka[] d, int k, int N)
+        {
+            var index = 0;
+            var count = new int[k + 1];
+            for (int j = 0; j < N; j++)
+            {
+                count[(int)d[j].price]++;
+            }
+            for (int t = 0; t < count.Length; t++)
+            {
+                for (int w = 0; w < count[t]; w++)
+                {
+                    d[index].price = t;
+                    index++;
+                }
+            }
+        }
     }
 }
