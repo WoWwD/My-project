@@ -8,87 +8,21 @@ using System.Windows.Forms;
 
 namespace Apteka
 {
-    public struct Apteka
+    public struct Apteka //структура, содержащая поля
     {
-        private string _name;
-        private string _manufact;
-        private int _price;
-        private double _discount;
-        public string name
-        {
-            set 
-            {
-                foreach (char c in value)
-                {
-                    if (!Char.IsLetter(c))
-                    {
-                        throw new Exception("Строка должна содержать только буквы!");
-                    }
-                    else
-                    {
-                        _name = value;
-                    } 
-                }
-            } 
-            get { return _name; } 
-        }
-        public string manufact
-        {
-            set 
-            {
-                foreach (char c in value)
-                {
-                    if (!Char.IsLetter(c))
-                    {
-                        throw new Exception("Строка должна содержать только буквы!");
-                    }
-                    {
-                        _manufact = value;
-                    }
-                        
-                }
-            } 
-            get { return _manufact; } 
-        }
-        public int price
-        {
-            set
-            {
-                if (value > 10000 || value < 1)
-                {
-                    throw new Exception("Цена должна быть в пределах от 1 до 10000 (руб.)!");
-                }
-                else
-                {
-                    _price = value;
-                }
-            }
-            get { return _price; }
-        }
-        public double discount
-        {
-            set
-            {
-                if (value > 100 || value < 0)
-                {
-                    throw new Exception("Скидка должна быть в пределах от 0 до 100 (%)!");
-                }
-                else
-                {
-                    _discount = value;
-                }
-            }
-            get { return _discount; }
-        }
-        public double discountedPrice;
-        public void OutputDataStruct()
+        public string name; //название препарата
+        public string manufact; //производитель
+        public int price; //цена
+        public double discount; //скидка
+        public double discountedPrice; //цена со скидкой
+        public void OutputDataStruct() //функция для вывода одной структуры
         {
             Console.WriteLine($"Название препарата: {name}, Производитель: {manufact}, Цена: {price} руб., Скидка: {Math.Round(discount, 2)} %, Цена со скидкой: {Math.Round(discountedPrice, 2)} руб.");
         }
     }
-    public static class Data
+    public static class Data //класс, содержащий необходимые функции и поля
     {
-        public static void InputData(int N, Apteka[] d)
+        public static void InputData(int N, Apteka[] d) // функция для ввода N структур
         {
             for (int i = 0; i < N; i++)
             {
@@ -106,7 +40,7 @@ namespace Apteka
                 Console.WriteLine();
             }
         }
-        public static void InputDataOne(int N, Apteka[] d)
+        public static void InputDataOne(int N, Apteka[] d) //функция для ввода одной структуры
         {
             int i = N - 1;
             Console.WriteLine();
@@ -122,16 +56,16 @@ namespace Apteka
             Console.Write($"Цена со скидкой (руб.): {d[i].discountedPrice}");
             Console.WriteLine();
         }
-        public static void OutputData(int N, Apteka[] d)
+        public static void OutputData(int N, Apteka[] d) //функция для вывода всех структур
         {
-            Console.Write("Список товаров: ");
+            Console.Write("Список препаратов: ");
             for (int i = 0; i < N; i++)
             {
                 Console.WriteLine();
                 d[i].OutputDataStruct();
             }
         }
-        public static void WriteToFile(Apteka[] d, string path)
+        public static void WriteToFile(Apteka[] d, string path) //функция для записи структур в файл
         {
             using (StreamWriter writer = new StreamWriter(path, false))
             {
@@ -146,7 +80,7 @@ namespace Apteka
                 writer.Close();
             }
         }
-        public static void ReadFrFile(out int N, out Apteka[] d, string path)
+        public static void ReadFrFile(out int N, out Apteka[] d, string path) //функция для считывания структур из файла и записи их в массив структур
         {
             using (StreamReader reader1 = new StreamReader(path))
             {
@@ -208,7 +142,7 @@ namespace Apteka
                 reader2.Close();
             }
         }
-        public static void SearchData(int N, Apteka[] d)
+        public static void SearchData(int N, Apteka[] d) //функция для поиска структур по производителю и их вывода
         {
             string atr;
             int n = 0;
@@ -218,7 +152,7 @@ namespace Apteka
             {
                 if (atr == d[i].manufact)
                 {
-                    Console.Write("Найденные товары: ");
+                    Console.Write("Найденные препараты: ");
                     d[i].OutputDataStruct();
                     n++;
                 }
@@ -228,7 +162,7 @@ namespace Apteka
                 Console.WriteLine("Таких товаров не найдено!");
             }
         }
-        public static void Sort(Apteka[] d, int k, int N)
+        public static void Sort(Apteka[] d, int k, int N) //функция для сортировки полей структуры по цене методом подсчёта
         {
             var index = 0;
             var count = new int[k + 1];
@@ -272,7 +206,7 @@ namespace Apteka
                 }
             }
         }
-        public static DialogResult Show(string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon)
+        public static DialogResult Show(string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon) //функция для вызова сообщений
         {
             return MessageBox.Show(text, caption, buttons, icon);
         }

@@ -12,19 +12,17 @@ namespace Apteka
     {
         public static void Menu()
         {
-            Console.WriteLine("1. Добавление товаров");
-            Console.WriteLine("2. Вывод всех товаров");
-            Console.WriteLine("3. Добавить один товар");
-            Console.WriteLine("4. Удалить последний добавленный товар");
-            Console.WriteLine("5. Добавить товары в файл");
-            Console.WriteLine("6. Чтение из файла");
-            Console.WriteLine("7. Поиск товаров по производителю");
-            Console.WriteLine("8. Сортировка");
+            Console.WriteLine("1. Добавление препаратов");
+            Console.WriteLine("2. Вывод всех препаратов");
+            Console.WriteLine("3. Добавить один препарат");
+            Console.WriteLine("4. Удалить последний добавленный препарат");
+            Console.WriteLine("5. Добавить список препаратов в файл");
+            Console.WriteLine("6. Добавить препараты из файла в список");
+            Console.WriteLine("7. Поиск препаратов по производителю");
+            Console.WriteLine("8. Сортировать методом подсчёта препараты по цене");
             Console.WriteLine("9. Построить диаграмму");
             Console.WriteLine("Escape. Выход");
         }
-
-        //метод для получения массива заполненного случайными числами
         [STAThread]
         static void Main(string[] args)
         {
@@ -32,7 +30,7 @@ namespace Apteka
             Apteka[] d;
             Apteka[] p;
             d = new Apteka[N];
-        Menu:
+          Menu:
             try
             {
                 Menu();
@@ -40,11 +38,12 @@ namespace Apteka
                 {
                     case ConsoleKey.D1:{
                         Console.Clear();
-                        Console.Write("Количество добавляемых товаров: ");
+                        Console.Write("Количество добавляемых препаратов: ");
                         N = Convert.ToInt32(Console.ReadLine());
                         d = new Apteka[N];
                         Data.InputData(N, d);
-                        Data.Show("Товары добавлены!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Data.Show("Препараты добавлены!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Console.Clear();
                         goto Menu;
                     }
                     case ConsoleKey.D2:{
@@ -57,11 +56,9 @@ namespace Apteka
                             Console.Clear();
                             goto Menu;
                         }
-                        else
-                        {
-                            Data.Show("Список товаров пуст!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            goto Menu;
-                        }
+                        Data.Show("Список препаратов пуст!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Console.Clear();
+                        goto Menu;
                     }
                     case ConsoleKey.D3:{
                         Console.Clear();
@@ -73,26 +70,28 @@ namespace Apteka
                         Data.InputDataOne(N, p);
                         for (int i = 0; i < N; i++)
                             d[i] = p[i];
-                        Data.Show("Товар добавлен!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Data.Show("Препарат добавлен!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Console.Clear();
                         goto Menu;
                     }
                     case ConsoleKey.D4:{
                         Console.Clear();
-                        if (N > 0)
+                        if (N != 0)
                         {
-                            N--;
+                                N--;
                             p = new Apteka[N];
                             for (int i = 0; i < N; i++)
                                 p[i] = d[i];
                             d = new Apteka[N];
                             for (int i = 0; i < N; i++)
                                 d[i] = p[i];
-                            Data.Show("Последний добавленный товар был удалён!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Data.Show("Последний добавленный препарат был удалён!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Console.Clear();
                             goto Menu;
                         }
                         else
                         {
-                            Data.Show("Список товаров пуст!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            Data.Show("Список препаратов пуст!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             goto Menu;
                         }
                     }
@@ -101,12 +100,13 @@ namespace Apteka
                         if (N != 0)
                         {
                             Data.WriteToFile(d, @"D:\\apteka.txt");
-                            Data.Show("Товары были сохранены в файл 'Apteka.txt' !", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Data.Show("Препараты были сохранены в файл 'Apteka.txt' !", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Console.Clear();
                             goto Menu;
                         }
                         else
                         {
-                            Data.Show("Список товаров пуст!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            Data.Show("Список препаратов пуст!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             goto Menu;
                         }
                     }
@@ -118,7 +118,8 @@ namespace Apteka
                             Data.Show("Файл пустой!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             goto Menu;
                         }
-                        Data.Show("Товары были добавлены в список!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Data.Show("Препараты были добавлены в список!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Console.Clear();
                         goto Menu;
                     }
                     case ConsoleKey.D7:{
@@ -133,7 +134,7 @@ namespace Apteka
                         }
                         else
                         {
-                            Data.Show("Список товаров пуст!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            Data.Show("Список препаратов пуст!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             goto Menu;
                         }
                     }
@@ -143,11 +144,12 @@ namespace Apteka
                         {
                             Data.Sort(d, 10000, N);
                             Data.Show("Сортировка выполнена!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Console.Clear();
                             goto Menu;
                         }
                         else
                         {
-                            Data.Show("Список товаров пуст!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            Data.Show("Список препаратов пуст!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             goto Menu;
                         }
                     }
