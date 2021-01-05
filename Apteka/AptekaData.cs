@@ -4,27 +4,86 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Apteka
-{ 
+{
     public struct Apteka
     {
-        public string name;
-        public string manufact;
-        public double price;
-        public double discount;
-        public double discountedPrice;
-        public Apteka(string name, string manufact, double price, double discount, double discountedPrice)
+        private string _name;
+        private string _manufact;
+        private int _price;
+        private double _discount;
+        public string name
         {
-            this.name = name;
-            this.manufact = manufact;
-            this.price = price;
-            this.discount = discount;
-            this.discountedPrice = discountedPrice;
+            set 
+            {
+                foreach (char c in value)
+                {
+                    if (!Char.IsLetter(c))
+                    {
+                        throw new Exception("Строка должна содержать только буквы!");
+                    }
+                    else
+                    {
+                        _name = value;
+                    } 
+                }
+            } 
+            get { return _name; } 
         }
+        public string manufact
+        {
+            set 
+            {
+                foreach (char c in value)
+                {
+                    if (!Char.IsLetter(c))
+                    {
+                        throw new Exception("Строка должна содержать только буквы!");
+                    }
+                    {
+                        _manufact = value;
+                    }
+                        
+                }
+            } 
+            get { return _manufact; } 
+        }
+        public int price
+        {
+            set
+            {
+                if (value > 10000 || value < 1)
+                {
+                    throw new Exception("Цена должна быть в пределах от 1 до 10000 (руб.)!");
+                }
+                else
+                {
+                    _price = value;
+                }
+            }
+            get { return _price; }
+        }
+        public double discount
+        {
+            set
+            {
+                if (value > 100 || value < 0)
+                {
+                    throw new Exception("Скидка должна быть в пределах от 0 до 100 (%)!");
+                }
+                else
+                {
+                    _discount = value;
+                }
+            }
+            get { return _discount; }
+        }
+        public double discountedPrice;
         public void OutputDataStruct()
         {
-            Console.WriteLine($"Название препарата: {name}, Производитель: {manufact}, Цена: {price} руб., Скидка: {discount} %, Цена со скидкой: {discountedPrice} руб.");
+            Console.WriteLine($"Название препарата: {name}, Производитель: {manufact}, Цена: {price} руб., Скидка: {Math.Round(discount, 2)} %, Цена со скидкой: {Math.Round(discountedPrice, 2)} руб.");
         }
     }
     public static class Data
@@ -39,7 +98,7 @@ namespace Apteka
                 Console.Write("Производитель: ");
                 d[i].manufact = Console.ReadLine();
                 Console.Write("Цена (руб.): ");
-                d[i].price = Convert.ToDouble(Console.ReadLine());
+                d[i].price = Convert.ToInt32(Console.ReadLine());
                 Console.Write("Скидка (%): ");
                 d[i].discount = Convert.ToDouble(Console.ReadLine());
                 d[i].discountedPrice = d[i].price - (d[i].price * d[i].discount) / 100;
@@ -56,7 +115,7 @@ namespace Apteka
             Console.Write("Производитель: ");
             d[i].manufact = Console.ReadLine();
             Console.Write("Цена (руб.): ");
-            d[i].price = Convert.ToDouble(Console.ReadLine());
+            d[i].price = Convert.ToInt32(Console.ReadLine());
             Console.Write("Скидка (%): ");
             d[i].discount = Convert.ToDouble(Console.ReadLine());
             d[i].discountedPrice = d[i].price - (d[i].price * d[i].discount) / 100;
@@ -126,7 +185,7 @@ namespace Apteka
                         {
                             str2 = line;
                             str2 = str2.Substring(str2.IndexOf(':') + 1);
-                            d[i].price = Convert.ToDouble(str2);
+                            d[i].price = Convert.ToInt32(str2);
                         }
                         if (line.Contains("Скидка (%):"))
                         {
@@ -175,7 +234,7 @@ namespace Apteka
             var count = new int[k + 1];
             for (int j = 0; j < N; j++)
             {
-                count[(int)d[j].price]++;
+                count[d[j].price]++;
             }
             for (int t = 0; t < count.Length; t++)
             {
@@ -195,7 +254,7 @@ namespace Apteka
                                 d[index].manufact = d[j].manufact;
                                 d[j].manufact = m;
 
-                                double p = d[index].price;
+                                int p = d[index].price;
                                 d[index].price = d[j].price;
                                 d[j].price = p;
 
@@ -212,6 +271,10 @@ namespace Apteka
                     index++;
                 }
             }
+        }
+        public static DialogResult Show(string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon)
+        {
+            return MessageBox.Show(text, caption, buttons, icon);
         }
     }
 }
