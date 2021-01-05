@@ -169,7 +169,7 @@ namespace Apteka
                             Console.Clear();
                             if (N != 0)
                             {
-                                Data.Sort(d, 999, N);
+                                Data.Sort(d, 100, N);
                                 Console.WriteLine("Сортировка выполнена!");
                                 Console.WriteLine("Нажмите Enter для возврата в меню");
                                 Console.ReadKey();

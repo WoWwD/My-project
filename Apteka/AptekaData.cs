@@ -180,8 +180,35 @@ namespace Apteka
             for (int t = 0; t < count.Length; t++)
             {
                 for (int w = 0; w < count[t]; w++)
-                {
-                    d[index].price = t;
+                {    
+                    for (int i = N - 1; i > 0; i--)
+                    {
+                        for (int j = 0; j < i; j++)
+                        {
+                            if (d[j].price == t)
+                            {
+                                string n = d[index].name;
+                                d[index].name = d[j].name;
+                                d[j].name = n;
+
+                                string m = d[index].manufact;
+                                d[index].manufact = d[j].manufact;
+                                d[j].manufact = m;
+
+                                double p = d[index].price;
+                                d[index].price = d[j].price;
+                                d[j].price = p;
+
+                                double dis = d[index].discount;
+                                d[index].discount = d[j].discount;
+                                d[j].discount = dis;
+
+                                double dp = d[index].discountedPrice;
+                                d[index].discountedPrice = d[j].discountedPrice;
+                                d[j].discountedPrice = dp;
+                            }
+                        }
+                    }
                     index++;
                 }
             }
