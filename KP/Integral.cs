@@ -8,20 +8,20 @@ namespace KP
 {
     public static class Integral 
     {
-        public static void CalcInteg(double UpLimit, double LowLimit, int Segments, out double Res)
+        public static void CalcInteg(int UpLimit, int LowLimit, double Segments, double eps, out double Res) //функция для вычисления интеграла методов трапеций
         {
             double h;
-            h = (UpLimit - LowLimit) / Segments;
-            Res = 0.5 * (FuncInteg(LowLimit) + FuncInteg(UpLimit));
-            for (int i = 1; i < Segments; i++)
+            h = (UpLimit - LowLimit) / Segments; //вычисление шага (разбиение отрезка интегрирования на трапеции)
+            Res = eps * (FuncInteg(LowLimit) + FuncInteg(UpLimit));
+            for (int i = 1; i < Segments; i++) // суммирование результата с каждым шагом
             {
                 Res += FuncInteg(LowLimit + h * i);
             }
             Res *= h;
         }
-        public static double FuncInteg(double x)
+        public static double FuncInteg(double x) //функция, которая возвращает f(x)
         {
-            return Math.Cos(Math.Pow(x,0.5));
+            return Math.Cos(Math.Pow(Math.Abs(x),0.5));
         }
     }
 }
