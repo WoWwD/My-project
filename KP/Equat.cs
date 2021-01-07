@@ -13,21 +13,22 @@ namespace KP
 {
     public partial class Equat : Form
     {
-        public void CreateChartEquat(double a, double b, int n)
+        public void CreateChartEquat(double a, double b, int n) //функция построения графика
         {
+
             double x, y;
             chartEquat.Series[0].Points.Clear();
             x = a;
             while (x <= b)
             {
-                y = Equation.FuncEquat(x);
+                y = Math.Log(x) - Math.Sqrt(4 - x); ;
                 chartEquat.Series[0].Points.AddXY(x, y);
                 x += n;
             }
         }
-        public void InputCheckEquat1(KeyPressEventArgs e)
+        public void InputCheckEquat1(KeyPressEventArgs e) //функция, с помощью которой проверяется ввод с клавиатуры в textbox-ы
         {
-            if (!(Char.IsDigit(e.KeyChar)) && !((e.KeyChar == ',')))
+            if (!(Char.IsDigit(e.KeyChar)) && !((e.KeyChar == ','))) //ввод только цифр и только одной запятой
             {
                 if (e.KeyChar != (char)Keys.Back)
                 { e.Handled = true; }
@@ -37,58 +38,41 @@ namespace KP
         {
             InitializeComponent();
         }
-        private void Equat_Load(object sender, EventArgs e)
+        private void Equat_Load(object sender, EventArgs e) //событие загрузки формы
         {
-            InputEquatChartA.MaxLength = 2;
-            InputEquatChartB.MaxLength = 2;
-            InputEquatChartN.MaxLength = 1;
-            InputEquatX0.MaxLength = 6;
-            InputEquatEps.MaxLength = 18;
-            InputEquatEps.Text = "0,00001";
-            InputEquatChartA.Text = "1";
-            InputEquatChartB.Text = "10";
-            InputEquatChartN.Text = "1";
+            InputEquatX0.MaxLength = 4;    //установка размера строки некоторым textbox-ам
+            InputEquatEps.MaxLength = 15;
             buttonEquatBackToMenu.FlatAppearance.BorderSize = 0;
             buttonEquatBackToMenu.FlatStyle = FlatStyle.Flat;
-            CreateChartEquat(1,10,1);
+            CreateChartEquat(1,5,1); //вызов функции построения графика
         }
-        private void buttonEquatResetTextBox_Click(object sender, EventArgs e)
+        private void buttonEquatResetTextBox_Click(object sender, EventArgs e) //событие нажатия кнопки "Сбросить"
         {
-            InputEquatEps.Text = string.Empty;
-            InputEquatX0.Text = string.Empty;
+            InputEquatEps.Text = string.Empty;   //обнуление всех textbox-ов
             OutputEquatN.Text = string.Empty;
             OutputEquatRes.Text = string.Empty;
+            InputEquatX0.Text = string.Empty;
         }
-        private void buttonEquatCalc_Click(object sender, EventArgs e)
+        private void buttonEquatCalc_Click(object sender, EventArgs e) //событие нажатия кнопки "Рассчитать"
         {
             try
-            {
+            {   //проверка на ввод в textbox-ы определённых значений
                 if ((InputEquatX0.Text == string.Empty) || (InputEquatEps.Text == string.Empty))
                 {
                     throw new Exception("Введены не все данные для расчёта!");
                 }
-                if (Convert.ToDouble(InputEquatEps.Text) == 0)
+                if (Convert.ToDouble(InputEquatEps.Text) == 0 || Convert.ToDouble(InputEquatEps.Text) > 1)
                 {
                     InputEquatEps.Text = string.Empty;
-                    throw new Exception("Точность не может быть равна нулю!");
+                    throw new Exception("Точность не может быть больше 1 или равняться нулю");
                 }
-                if (Convert.ToDouble(InputEquatX0.Text) > 99)
-                {
-                    InputEquatEps.Text = string.Empty;
-                    throw new Exception("Корень не может быть больше 99!");
-                }
-                if (Convert.ToDouble(InputEquatX0.Text) < 0)
+                if (Convert.ToDouble(InputEquatX0.Text) <= 0 || Convert.ToDouble(InputEquatX0.Text) > 4)
                 {
                     InputEquatX0.Text = string.Empty;
-                    throw new Exception("Корень не может быть отрицательным!");
+                    throw new Exception("Корень должен входить в интервал от 0 до 4!");
                 }
-                if (Convert.ToDouble(InputEquatX0.Text) == 0)
-                {
-                    InputEquatX0.Text = string.Empty;
-                    throw new Exception("Корень не может быть равен нулю!");
-                }
-                Equation.CalcEquat(Convert.ToDouble(InputEquatX0.Text), Convert.ToDouble(InputEquatEps.Text), out double res, out double nres);
-                OutputEquatRes.Text = res.ToString();
+                Equation.CalcEquat(Convert.ToDouble(InputEquatX0.Text), Convert.ToDouble(InputEquatEps.Text), out double res, out int nres); //вызов функции расчёта уравнения
+                OutputEquatRes.Text = res.ToString(); //присваивание textbox-ам результата переменных "Res" и "nRes"
                 OutputEquatN.Text = nres.ToString();
             }
             catch (Exception ex)
@@ -96,71 +80,19 @@ namespace KP
                 MessageBox.Show(ex.Message);
             }
         }
-        private void buttonEquatBackToMenu_Click(object sender, EventArgs e)
+        private void buttonEquatBackToMenu_Click(object sender, EventArgs e) //событие нажатия кнопки "назад"
         {
-            MainForm newForm = new MainForm();
+            MainForm newForm = new MainForm(); //возврат в главное меню и закрытие предыдущей формы
             this.Close();
             newForm.Hide();
         }
-        private void buttonEquatCreateChart_Click(object sender, EventArgs e)
+        private void InputEquatEps_KeyPress(object sender, KeyPressEventArgs e) //событие нажатия клавиши в textbox-е
         {
-            try
-            {
-                if ((InputEquatChartA.Text == string.Empty) || (InputEquatChartB.Text == string.Empty) || (InputEquatChartN.Text == string.Empty))
-                {
-                    throw new Exception("Данные, нужные для построения графика, не введены!");
-                }
-                if (Convert.ToInt32(InputEquatChartA.Text) > Convert.ToInt32(InputEquatChartB.Text))
-                {
-                    InputEquatChartB.Text = string.Empty;
-                    throw new Exception("Правый интервал не может быть меньше левого!");
-                }
-                if (Convert.ToInt32(InputEquatChartB.Text) == Convert.ToInt32(InputEquatChartA.Text))
-                {
-                    InputEquatChartA.Text = string.Empty;
-                    InputEquatChartB.Text = string.Empty;
-                    throw new Exception("Интервалы не могут быть равны!");
-                }
-                if (Convert.ToInt32(InputEquatChartB.Text) - Convert.ToInt32(InputEquatChartA.Text) <
-                    Convert.ToInt32(InputEquatChartN.Text) || Convert.ToInt32(InputEquatChartN.Text) == 0)
-                {
-                    InputEquatChartN.Text = string.Empty;
-                    throw new Exception("Количество делений не может быть равно такому значению!");
-                }
-                if (Convert.ToInt32(InputEquatChartN.Text) > 3)
-                {
-                    InputEquatChartN.Text = string.Empty;
-                    throw new Exception("Количество делений не может быть больше трёх!");
-                }
-                if (Convert.ToInt32(InputEquatChartN.Text) == 3 && Convert.ToInt32(InputEquatChartA.Text) > 1)
-                {
-                    InputEquatChartA.Text = string.Empty;
-                    throw new Exception("Левый интервал не должен быть больше 1!");
-                }
-                if (Convert.ToInt32(InputEquatChartN.Text) == 2 && Convert.ToInt32(InputEquatChartA.Text) > 2)
-                {
-                    InputEquatChartA.Text = string.Empty;
-                    throw new Exception("Левый интервал не должен быть больше 2!");
-                }
-                if (Convert.ToInt32(InputEquatChartN.Text) == 1 && Convert.ToInt32(InputEquatChartA.Text) > 3)
-                {
-                    InputEquatChartA.Text = string.Empty;
-                    throw new Exception("Левый интервал не должен быть больше 3!");
-                }
-                CreateChartEquat(Convert.ToInt32(InputEquatChartA.Text), Convert.ToInt32(InputEquatChartB.Text), Convert.ToInt32(InputEquatChartN.Text));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            InputCheckEquat1(e); //вызов функции для проверки ввода определённых символов с клавиатуры
         }
-        private void InputEquatX0_KeyPress(object sender, KeyPressEventArgs e)
+        private void InputEquatX0_KeyPress(object sender, KeyPressEventArgs e) //событие нажатия клавиши в textbox-е
         {
-            InputCheckEquat1(e);
-        }
-        private void InputEquatEps_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            InputCheckEquat1(e);
+            InputCheckEquat1(e); //вызов функции для проверки ввода определённых символов с клавиатуры
         }
     }
 }

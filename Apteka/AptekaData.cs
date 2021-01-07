@@ -13,12 +13,12 @@ namespace Apteka
     {
         public string name; //название 
         public string manufact; // производитель
-        public int price; //цена 
+        public double price; //цена 
         public int discount; // скидка 
         public double discountedPrice; //цена с учётом скидки 
         public void OutputDataStruct() //функция для вывода одной структуры
         {
-            Console.WriteLine($"Название препарата: {name}, Производитель: {manufact}, Цена: {price} руб., Скидка: {discount} %, Цена со скидкой: {Math.Round(discountedPrice, 2)} руб.");
+            Console.WriteLine($"Название препарата: {name}, Производитель: {manufact}, Цена: {price} руб., Скидка: {discount} %, Цена со скидкой: {discountedPrice} руб.");
         }
     }
     public static class Data //класс, содержащий необходимые функции
@@ -62,7 +62,7 @@ namespace Apteka
                 }
             a3: //метка для возврата если введены не цифры
                 Console.Write("Цена (руб.): ");
-                if(!int.TryParse(Console.ReadLine(), out p[i].price)) //условие для проверки ввода только цифр
+                if(!double.TryParse(Console.ReadLine(), out p[i].price)) //условие для проверки ввода только цифр
                 {
                     Show("Нужно ввести число!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); //вызов функции показа сообщения
                     Console.WriteLine("----------------------");
@@ -141,7 +141,7 @@ namespace Apteka
             }
          a3: //метка для возврата если введены не цифры
             Console.Write("Цена (руб.): ");
-            if (!int.TryParse(Console.ReadLine(), out p[i].price)) //условие для проверки ввода только цифр
+            if (!double.TryParse(Console.ReadLine(), out p[i].price)) //условие для проверки ввода только цифр
             {
                 Show("Нужно ввести число!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); //вызов функции показа сообщения
                 Console.WriteLine("----------------------");
@@ -168,7 +168,7 @@ namespace Apteka
             if (p[i].discount > 0 && p[i].discount < 101) //условие для проверки диапазона введённой скидки
             {
                 p1[i].discount = p[i].discount;
-                p1[i].discountedPrice = p1[i].price - (p1[i].price * p1[i].discount) / 100; // вычисление цены со скидкой
+                p1[i].discountedPrice = p1[i].price - ((p1[i].price * p1[i].discount) / 100); // вычисление цены со скидкой
                 Console.Write($"Цена со скидкой (руб.): {p1[i].discountedPrice}");
             }
             else
@@ -286,7 +286,7 @@ namespace Apteka
             var count = new int[k + 1]; //массив ключей
             for (int j = 0; j < N; j++) //увеличение индексов, соответствующих элементам входного массива, на 1
             {
-                count[d[j].price]++;
+                count[(int)d[j].price]++;
             }
             for (int t = 0; t < count.Length; t++) // увеличение "t" на 1, пока она не больше размера (k) массива ключей
             {                                      // если t равна элементу в массиве ключей, то полю "цена"
@@ -306,7 +306,7 @@ namespace Apteka
                                 d[index].manufact = d[j].manufact;
                                 d[j].manufact = m;
 
-                                int p = d[index].price;
+                                double p = d[index].price;
                                 d[index].price = d[j].price;
                                 d[j].price = p;
 

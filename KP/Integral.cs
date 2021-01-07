@@ -19,7 +19,7 @@ namespace KP
             }
             Res *= h;
         }
-        public static double FuncInteg(double x) //функция, которая возвращает f(x)
+        public static double FuncInteg(double x) //функция, которая возвращает функцию интеграла
         {
             return Math.Cos(Math.Pow(Math.Abs(x),0.5));
         }

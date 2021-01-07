@@ -13,7 +13,7 @@ namespace KP
 {
     public partial class Integ : Form
     {
-        public void CreateChartIntegA(int a, int b, double n) //функция построения графика
+        public void CreateChartInteg(int a, int b, double n, int o) //функция построения графика
         {
             double x, y;
             chartInteg.Series[0].Points.Clear();
@@ -21,19 +21,7 @@ namespace KP
             while (x <= b)
             {
                 y = Integral.FuncInteg(x);
-                chartInteg.Series[0].Points.AddXY(x, y);
-                x += n;
-            }
-        }
-        public void CreateChartIntegB(int a, int b, double n) //функция построения графика
-        {
-            double x, y;
-            chartInteg.Series[0].Points.Clear();
-            x = a;
-            while (x <= b)
-            {
-                y = Integral.FuncInteg(x);
-                chartInteg.Series[0].Points.AddXY(x * (-1), y);
+                chartInteg.Series[0].Points.AddXY(x * o, y);
                 x += n;
             }
         }
@@ -71,7 +59,7 @@ namespace KP
             InputIntegEps.MaxLength = 5;
             buttonIntegBackToMenu.FlatAppearance.BorderSize = 0;
             buttonIntegBackToMenu.FlatStyle = FlatStyle.Flat;
-            CreateChartIntegA(-99, 99, 1); //вызов функции построения графика после загрузки формы
+            CreateChartInteg(-99, 99, 1, 1); //вызов функции построения графика после загрузки формы
         }
         private void buttonIntegCalc_Click(object sender, EventArgs e) //событие нажатия кнопки "Рассчитать"
         {
@@ -101,17 +89,23 @@ namespace KP
                     InputIntegEps.Text = string.Empty;
                     throw new Exception("Точность должна быть в интервале от 1 до 0,001!");
                 }
+                if (Convert.ToInt32(InputIntegLowLimit.Text) == Convert.ToInt32(InputIntegUpLimit.Text))
+                {
+                    InputIntegLowLimit.Text = string.Empty;
+                    InputIntegUpLimit.Text = string.Empty;
+                    throw new Exception("Пределы не могут быть равны!");
+                }
                 //вызов функции для расчёта интеграла
                 Integral.CalcInteg(Convert.ToInt32(InputIntegLowLimit.Text), Convert.ToInt32(InputIntegUpLimit.Text), Convert.ToInt32(InputIntegSegments.Text), Convert.ToDouble(InputIntegEps.Text), out double res);
                 OutputIntegCalc.Text = res.ToString(); //присваивание textbox-у с ответом результата
                 //проверка некоторых значений, необходимых для построения графика
                 if (Convert.ToInt32(InputIntegLowLimit.Text) < Convert.ToInt32(InputIntegUpLimit.Text))
                 {
-                    CreateChartIntegA(Convert.ToInt32(InputIntegLowLimit.Text), Convert.ToInt32(InputIntegUpLimit.Text), 1); //вызов функции построения графика 
+                    CreateChartInteg(Convert.ToInt32(InputIntegLowLimit.Text), Convert.ToInt32(InputIntegUpLimit.Text),1, 1); //вызов функции построения графика 
                 }
                 else
                 {
-                    CreateChartIntegB(Convert.ToInt32(InputIntegUpLimit.Text), Convert.ToInt32(InputIntegLowLimit.Text), 1); //вызов функции построения графика 
+                    CreateChartInteg(Convert.ToInt32(InputIntegUpLimit.Text), Convert.ToInt32(InputIntegLowLimit.Text), 1, -1); //вызов функции построения графика 
                 }
             }
             catch (Exception ex)
@@ -126,7 +120,7 @@ namespace KP
             InputIntegSegments.Text = string.Empty;
             OutputIntegCalc.Text = string.Empty;
             InputIntegEps.Text = string.Empty;
-            CreateChartIntegA(-99, 99, 1); //вызов функции для построения нового графика
+            CreateChartInteg(-99, 99, 1, 1); //вызов функции для построения нового графика
         }
         private void InputIntegLowLimit_KeyPress(object sender, KeyPressEventArgs e) //событие нажатия клавиши в textbox-е
         {

@@ -191,7 +191,7 @@ namespace KP
             this.InputIntegEps.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.InputIntegEps.Location = new System.Drawing.Point(451, 29);
             this.InputIntegEps.Name = "InputIntegEps";
-            this.InputIntegEps.Size = new System.Drawing.Size(145, 27);
+            this.InputIntegEps.Size = new System.Drawing.Size(146, 27);
             this.InputIntegEps.TabIndex = 11;
             this.InputIntegEps.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputIntegEps_KeyPress);
             // 
