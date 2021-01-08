@@ -63,7 +63,7 @@ namespace KP
             title1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
             title1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             title1.Name = "Title1";
-            title1.Text = "Производитель";
+            title1.Text = "Препарат";
             title1.TextStyle = System.Windows.Forms.DataVisualization.Charting.TextStyle.Shadow;
             title2.Alignment = System.Drawing.ContentAlignment.TopLeft;
             title2.Font = new System.Drawing.Font("Arial", 10F);

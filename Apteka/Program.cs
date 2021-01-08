@@ -73,7 +73,7 @@ namespace Apteka
                         p1[i] = d[i]; //перенос структур в дополнительный массив
                     }
                     d = new Apteka[N]; 
-                    Data.InputDataOne(N, p, p1); ; //вызов функции для ввода одного препарата
+                    Data.InputDataOne(N, p, p1); //вызов функции для ввода одного препарата
                     for (int i = 0; i < N; i++)
                     {
                         d[i] = p1[i]; //перенос структур из дополнительного массива в основной
@@ -127,7 +127,7 @@ namespace Apteka
                 case ConsoleKey.D6: //если будет нажата клавиша "6", то все препараты будут добавлены из файла в основной массив 
                 {
                     Console.Clear();
-                    Data.ReadFrFile(out N, out d, @"D:\\apteka.txt"); //вызов функции для записи структур из файла в основной массив
+                    Data.ReadFrFile(N,  d, @"D:\\apteka.txt"); //вызов функции для записи структур из файла в основной массив
                     if (new FileInfo(@"D:\\apteka.txt").Length == 0)
                     {
                         Data.Show("Файл пустой!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Warning); //вызов функции показа сообщения

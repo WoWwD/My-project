@@ -54,7 +54,7 @@ namespace KP
                     {
                         while ((line = reader2.ReadLine()) != null)
                         {
-                            if (line.Contains("Производитель:"))
+                            if (line.Contains("Название препарата:"))
                             {
                                 manuf = line;
                                 manuf = manuf.Substring(manuf.IndexOf(':') + 1).Replace(" ", "");
