@@ -113,7 +113,7 @@ namespace Apteka
                     Console.Clear();
                     if (N != 0)
                     {
-                        Data.WriteToFile(d, @"D:\\apteka.txt"); //вызов функции для записи структур в файл
+                        Data.WriteToFile(d, @"..\..\..\apteka.txt"); //вызов функции для записи структур в файл
                         Data.Show("Препараты были сохранены в файл 'Apteka.txt' !", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information); //вызов функции показа сообщения
                         Console.Clear();
                         goto Menu;
@@ -127,8 +127,8 @@ namespace Apteka
                 case ConsoleKey.D6: //если будет нажата клавиша "6", то все препараты будут добавлены из файла в основной массив 
                 {
                     Console.Clear();
-                    Data.ReadFrFile(N,  d, @"D:\\apteka.txt"); //вызов функции для записи структур из файла в основной массив
-                    if (new FileInfo(@"D:\\apteka.txt").Length == 0)
+                    Data.ReadFrFile(N,  d, @"..\..\..\apteka.txt"); //вызов функции для записи структур из файла в основной массив
+                    if (new FileInfo(@"..\..\..\apteka.txt").Length == 0)
                     {
                         Data.Show("Файл пустой!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Warning); //вызов функции показа сообщения
                         goto Menu; 
