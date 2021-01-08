@@ -12,7 +12,7 @@ namespace KP
         public static int nMax = 10; //максимальное значений итераций
         public static void CalcEquat(double x0, double Eps, out double Res, out int nRes) //функция для вычисления уравнения по методу Ньютона
         {
-            string path = "log.txt";
+            string path = @"..\..\..\log.txt";
             double x1;
             int n = 1; 
             x1 = x0 - (FuncEquat(x0) / dFuncEquat(x0));

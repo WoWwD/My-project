@@ -127,7 +127,7 @@ namespace Apteka
                 case ConsoleKey.D6: //если будет нажата клавиша "6", то все препараты будут добавлены из файла в основной массив 
                 {
                     Console.Clear();
-                    Data.ReadFrFile(N,  d, @"..\..\..\apteka.txt"); //вызов функции для записи структур из файла в основной массив
+                    Data.ReadFrFile(out N,  out d, @"..\..\..\apteka.txt"); //вызов функции для записи структур из файла в основной массив
                     if (new FileInfo(@"..\..\..\apteka.txt").Length == 0)
                     {
                         Data.Show("Файл пустой!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Warning); //вызов функции показа сообщения
@@ -172,8 +172,8 @@ namespace Apteka
                 }
                 case ConsoleKey.D9: //если будет нажата клавиша "9", то выполнится запуск диаграммы
                 {
-                    Application.EnableVisualStyles();
-                    Application.Run(new KP.AptekaChart()); //запуск формы диаграммы
+                        Application.EnableVisualStyles();
+                        Application.Run(new KP.AptekaChart());
                     Console.Clear();
                     goto Menu; 
                 }

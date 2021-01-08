@@ -203,7 +203,7 @@ namespace Apteka
                 writer.Close();
             }
         }
-        public static void ReadFrFile(int N, Apteka[] d, string path) //функция для считывания структур из файла и записи их в массив структур
+        public static void ReadFrFile(out int N, out Apteka[] d, string path) //функция для считывания структур из файла и записи их в массив структур
         {
             using (StreamReader reader1 = new StreamReader(path))
             {
@@ -218,6 +218,7 @@ namespace Apteka
                 }
                 reader1.Close();
             }
+            d = new Apteka[N];
             using (StreamReader reader2 = new StreamReader(path))
             {
                 string line;
