@@ -26,6 +26,7 @@ namespace Apteka
         [STAThread] //используется для запуска формы диаграммы через консоль
         static void Main(string[] args)
         {
+            string path = @"..\..\..\apteka.txt";
             int N = 0; //количество структур
             Apteka[] d; //основной массив для хранения структур
             Apteka[] p; //массив для проверки входных данных
@@ -113,7 +114,7 @@ namespace Apteka
                     Console.Clear();
                     if (N != 0)
                     {
-                        Data.WriteToFile(d, @"..\..\..\apteka.txt"); //вызов функции для записи структур в файл
+                        Data.WriteToFile(d, path); //вызов функции для записи структур в файл
                         Data.Show("Препараты были сохранены в файл 'Apteka.txt' !", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information); //вызов функции показа сообщения
                         Console.Clear();
                         goto Menu;
@@ -127,8 +128,8 @@ namespace Apteka
                 case ConsoleKey.D6: //если будет нажата клавиша "6", то все препараты будут добавлены из файла в основной массив 
                 {
                     Console.Clear();
-                    Data.ReadFrFile(out N,  out d, @"..\..\..\apteka.txt"); //вызов функции для записи структур из файла в основной массив
-                    if (new FileInfo(@"..\..\..\apteka.txt").Length == 0)
+                    Data.ReadFrFile(out N,  out d, path); //вызов функции для записи структур из файла в основной массив
+                    if (new FileInfo(path).Length == 0)
                     {
                         Data.Show("Файл пустой!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Warning); //вызов функции показа сообщения
                         goto Menu; 
