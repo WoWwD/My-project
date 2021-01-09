@@ -53,10 +53,10 @@ namespace KP
         }
         private void Integ_Load(object sender, EventArgs e) //событие загрузки формы
         {
-            InputIntegLowLimit.MaxLength = 3; //установка размера строки некоторым textbox-ам
-            InputIntegUpLimit.MaxLength = 3;
-            InputIntegSegments.MaxLength = 7;
-            InputIntegEps.MaxLength = 5;
+            LowLimit.MaxLength = 3; //установка размера строки некоторым textbox-ам
+            UpLimit.MaxLength = 3;
+            Segments.MaxLength = 7;
+            Eps.MaxLength = 5;
             buttonIntegBackToMenu.FlatAppearance.BorderSize = 0;
             buttonIntegBackToMenu.FlatStyle = FlatStyle.Flat;
             CreateChartInteg(-99, 99, 1, 1); //вызов функции построения графика после загрузки формы
@@ -65,47 +65,47 @@ namespace KP
         {
             try
             {   //проверка на ввод в textbox-ы определённых значений
-                if ((InputIntegLowLimit.Text == string.Empty) || (InputIntegUpLimit.Text == string.Empty) || (InputIntegSegments.Text == string.Empty) || (InputIntegEps.Text == string.Empty))
+                if ((LowLimit.Text == string.Empty) || (UpLimit.Text == string.Empty) || (Segments.Text == string.Empty) || (Eps.Text == string.Empty))
                 {
                     throw new Exception("Введены не все данные для расчёта!");
                 }
-                if (Convert.ToInt32(InputIntegLowLimit.Text) > 99 || Convert.ToInt32(InputIntegLowLimit.Text) < -99)
+                if (Convert.ToInt32(LowLimit.Text) > 99 || Convert.ToInt32(LowLimit.Text) < -99)
                 {
-                    InputIntegLowLimit.Text = string.Empty;
+                    LowLimit.Text = string.Empty;
                     throw new Exception("Нижний предел должен быть в интервале от -99 до 99!");
                 }
-                if (Convert.ToInt32(InputIntegUpLimit.Text) > 99 || Convert.ToInt32(InputIntegUpLimit.Text) < -99)
+                if (Convert.ToInt32(UpLimit.Text) > 99 || Convert.ToInt32(UpLimit.Text) < -99)
                 {
-                    InputIntegUpLimit.Text = string.Empty;
+                    UpLimit.Text = string.Empty;
                     throw new Exception("Верхний предел должен быть в интервале от -99 до 99!");
                 }
-                if (Convert.ToInt32(InputIntegSegments.Text) > 1000000)
+                if (Convert.ToInt32(Segments.Text) > 1000000)
                 {
-                    InputIntegSegments.Text = string.Empty;
+                    Segments.Text = string.Empty;
                     throw new Exception("Количество сегментов не может быть больше 1000000!");
                 }
-                if (Convert.ToDouble(InputIntegEps.Text) > 1 || Convert.ToDouble(InputIntegEps.Text) < 0.001)
+                if (Convert.ToDouble(Eps.Text) > 1 || Convert.ToDouble(Eps.Text) < 0.001)
                 {
-                    InputIntegEps.Text = string.Empty;
+                    Eps.Text = string.Empty;
                     throw new Exception("Точность должна быть в интервале от 1 до 0,001!");
                 }
-                if (Convert.ToInt32(InputIntegLowLimit.Text) == Convert.ToInt32(InputIntegUpLimit.Text))
+                if (Convert.ToInt32(LowLimit.Text) == Convert.ToInt32(UpLimit.Text))
                 {
-                    InputIntegLowLimit.Text = string.Empty;
-                    InputIntegUpLimit.Text = string.Empty;
+                    LowLimit.Text = string.Empty;
+                    UpLimit.Text = string.Empty;
                     throw new Exception("Пределы не могут быть равны!");
                 }
                 //вызов функции для расчёта интеграла
-                Integral.CalcInteg(Convert.ToInt32(InputIntegLowLimit.Text), Convert.ToInt32(InputIntegUpLimit.Text), Convert.ToInt32(InputIntegSegments.Text), Convert.ToDouble(InputIntegEps.Text), out double res);
-                OutputIntegCalc.Text = res.ToString(); //присваивание textbox-у с ответом результата
+                Integral.CalcInteg(Convert.ToInt32(LowLimit.Text), Convert.ToInt32(UpLimit.Text), Convert.ToInt32(Segments.Text), Convert.ToDouble(Eps.Text), out double res);
+                Res.Text = res.ToString(); //присваивание textbox-у с ответом результата
                 //проверка некоторых значений, необходимых для построения графика
-                if (Convert.ToInt32(InputIntegLowLimit.Text) < Convert.ToInt32(InputIntegUpLimit.Text))
+                if (Convert.ToInt32(LowLimit.Text) < Convert.ToInt32(UpLimit.Text))
                 {
-                    CreateChartInteg(Convert.ToInt32(InputIntegLowLimit.Text), Convert.ToInt32(InputIntegUpLimit.Text),1, 1); //вызов функции построения графика 
+                    CreateChartInteg(Convert.ToInt32(LowLimit.Text), Convert.ToInt32(UpLimit.Text),1, 1); //вызов функции построения графика 
                 }
                 else
                 {
-                    CreateChartInteg(Convert.ToInt32(InputIntegUpLimit.Text), Convert.ToInt32(InputIntegLowLimit.Text), 1, -1); //вызов функции построения графика 
+                    CreateChartInteg(Convert.ToInt32(UpLimit.Text), Convert.ToInt32(LowLimit.Text), 1, -1); //вызов функции построения графика 
                 }
             }
             catch (Exception ex)
@@ -115,20 +115,20 @@ namespace KP
         }
         private void buttonIntegResetTextBox_Click(object sender, EventArgs e) //событие нажатия кнопки "Сбросить"
         {
-            InputIntegLowLimit.Text = string.Empty; //обнуление всех textbox-ов 
-            InputIntegUpLimit.Text = string.Empty;
-            InputIntegSegments.Text = string.Empty;
-            OutputIntegCalc.Text = string.Empty;
-            InputIntegEps.Text = string.Empty;
+            LowLimit.Text = string.Empty; //обнуление всех textbox-ов 
+            UpLimit.Text = string.Empty;
+            Segments.Text = string.Empty;
+            Res.Text = string.Empty;
+            Eps.Text = string.Empty;
             CreateChartInteg(-99, 99, 1, 1); //вызов функции для построения нового графика
         }
         private void InputIntegLowLimit_KeyPress(object sender, KeyPressEventArgs e) //событие нажатия клавиши в textbox-е
         {
-            InputCheckInteg1(sender, e, InputIntegLowLimit.Text.Length); //вызов функции для проверки ввода определённых символов с клавиатуры
+            InputCheckInteg1(sender, e, LowLimit.Text.Length); //вызов функции для проверки ввода определённых символов с клавиатуры
         }
         private void InputIntegUpLimit_KeyPress(object sender, KeyPressEventArgs e) //событие нажатия клавиши в textbox-е
         {
-            InputCheckInteg1(sender, e, InputIntegUpLimit.Text.Length); //вызов функции для проверки ввода определённых символов с клавиатуры
+            InputCheckInteg1(sender, e, UpLimit.Text.Length); //вызов функции для проверки ввода определённых символов с клавиатуры
         }
         private void buttonIntegBackToMenu_Click(object sender, EventArgs e) //событие нажатия кнопки "назад"
         {
@@ -138,7 +138,7 @@ namespace KP
         }
         private void InputIntegSegments_KeyPress(object sender, KeyPressEventArgs e) //событие нажатия клавиши в textbox-е
         {
-            InputCneckInteg2(sender, e, InputIntegSegments.Text.Length); //вызов функции для проверки ввода определённых символов с клавиатуры
+            InputCneckInteg2(sender, e, Segments.Text.Length); //вызов функции для проверки ввода определённых символов с клавиатуры
         }
         private void InputIntegEps_KeyPress(object sender, KeyPressEventArgs e)  //событие нажатия клавиши в textbox-е
         {

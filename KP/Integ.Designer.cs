@@ -33,75 +33,75 @@ namespace KP
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Integ));
-            this.InputIntegLowLimit = new System.Windows.Forms.TextBox();
-            this.InputIntegUpLimit = new System.Windows.Forms.TextBox();
-            this.InputIntegSegments = new System.Windows.Forms.TextBox();
-            this.buttonIntegCalc = new System.Windows.Forms.Button();
+            this.LowLimit = new System.Windows.Forms.TextBox();
+            this.UpLimit = new System.Windows.Forms.TextBox();
+            this.Segments = new System.Windows.Forms.TextBox();
+            this.buttonCalc = new System.Windows.Forms.Button();
             this.chartInteg = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBoxIntegInputDataForCalc = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.buttonIntegResetTextBox = new System.Windows.Forms.Button();
-            this.InputIntegEps = new System.Windows.Forms.TextBox();
+            this.buttonResetTextbox = new System.Windows.Forms.Button();
+            this.Eps = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.OutputIntegCalc = new System.Windows.Forms.TextBox();
+            this.Res = new System.Windows.Forms.TextBox();
             this.buttonIntegBackToMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chartInteg)).BeginInit();
             this.groupBoxIntegInputDataForCalc.SuspendLayout();
             this.SuspendLayout();
             // 
-            // InputIntegLowLimit
+            // LowLimit
             // 
-            this.InputIntegLowLimit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.InputIntegLowLimit.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.InputIntegLowLimit.Location = new System.Drawing.Point(195, 29);
-            this.InputIntegLowLimit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.InputIntegLowLimit.Name = "InputIntegLowLimit";
-            this.InputIntegLowLimit.Size = new System.Drawing.Size(101, 27);
-            this.InputIntegLowLimit.TabIndex = 1;
-            this.InputIntegLowLimit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputIntegLowLimit_KeyPress);
+            this.LowLimit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LowLimit.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LowLimit.Location = new System.Drawing.Point(195, 29);
+            this.LowLimit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.LowLimit.Name = "LowLimit";
+            this.LowLimit.Size = new System.Drawing.Size(101, 27);
+            this.LowLimit.TabIndex = 1;
+            this.LowLimit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputIntegLowLimit_KeyPress);
             // 
-            // InputIntegUpLimit
+            // UpLimit
             // 
-            this.InputIntegUpLimit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.InputIntegUpLimit.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.InputIntegUpLimit.Location = new System.Drawing.Point(195, 71);
-            this.InputIntegUpLimit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.InputIntegUpLimit.Name = "InputIntegUpLimit";
-            this.InputIntegUpLimit.Size = new System.Drawing.Size(101, 27);
-            this.InputIntegUpLimit.TabIndex = 2;
-            this.InputIntegUpLimit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputIntegUpLimit_KeyPress);
+            this.UpLimit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.UpLimit.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UpLimit.Location = new System.Drawing.Point(195, 71);
+            this.UpLimit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.UpLimit.Name = "UpLimit";
+            this.UpLimit.Size = new System.Drawing.Size(101, 27);
+            this.UpLimit.TabIndex = 2;
+            this.UpLimit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputIntegUpLimit_KeyPress);
             // 
-            // InputIntegSegments
+            // Segments
             // 
-            this.InputIntegSegments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.InputIntegSegments.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.InputIntegSegments.Location = new System.Drawing.Point(451, 71);
-            this.InputIntegSegments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.InputIntegSegments.Name = "InputIntegSegments";
-            this.InputIntegSegments.Size = new System.Drawing.Size(146, 27);
-            this.InputIntegSegments.TabIndex = 3;
-            this.InputIntegSegments.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputIntegSegments_KeyPress);
+            this.Segments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Segments.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Segments.Location = new System.Drawing.Point(451, 71);
+            this.Segments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Segments.Name = "Segments";
+            this.Segments.Size = new System.Drawing.Size(146, 27);
+            this.Segments.TabIndex = 3;
+            this.Segments.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputIntegSegments_KeyPress);
             // 
-            // buttonIntegCalc
+            // buttonCalc
             // 
-            this.buttonIntegCalc.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.buttonIntegCalc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonIntegCalc.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.buttonIntegCalc.FlatAppearance.BorderSize = 4;
-            this.buttonIntegCalc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonIntegCalc.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(200)));
-            this.buttonIntegCalc.ForeColor = System.Drawing.Color.White;
-            this.buttonIntegCalc.Location = new System.Drawing.Point(151, 186);
-            this.buttonIntegCalc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonIntegCalc.Name = "buttonIntegCalc";
-            this.buttonIntegCalc.Size = new System.Drawing.Size(133, 55);
-            this.buttonIntegCalc.TabIndex = 4;
-            this.buttonIntegCalc.Text = "Рассчитать";
-            this.buttonIntegCalc.UseVisualStyleBackColor = false;
-            this.buttonIntegCalc.Click += new System.EventHandler(this.buttonIntegCalc_Click);
+            this.buttonCalc.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonCalc.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonCalc.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.buttonCalc.FlatAppearance.BorderSize = 4;
+            this.buttonCalc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonCalc.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(200)));
+            this.buttonCalc.ForeColor = System.Drawing.Color.White;
+            this.buttonCalc.Location = new System.Drawing.Point(151, 186);
+            this.buttonCalc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonCalc.Name = "buttonCalc";
+            this.buttonCalc.Size = new System.Drawing.Size(133, 55);
+            this.buttonCalc.TabIndex = 4;
+            this.buttonCalc.Text = "Рассчитать";
+            this.buttonCalc.UseVisualStyleBackColor = false;
+            this.buttonCalc.Click += new System.EventHandler(this.buttonIntegCalc_Click);
             // 
             // chartInteg
             // 
@@ -138,17 +138,17 @@ namespace KP
             // 
             this.groupBoxIntegInputDataForCalc.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBoxIntegInputDataForCalc.Controls.Add(this.label5);
-            this.groupBoxIntegInputDataForCalc.Controls.Add(this.buttonIntegResetTextBox);
-            this.groupBoxIntegInputDataForCalc.Controls.Add(this.InputIntegEps);
-            this.groupBoxIntegInputDataForCalc.Controls.Add(this.buttonIntegCalc);
+            this.groupBoxIntegInputDataForCalc.Controls.Add(this.buttonResetTextbox);
+            this.groupBoxIntegInputDataForCalc.Controls.Add(this.Eps);
+            this.groupBoxIntegInputDataForCalc.Controls.Add(this.buttonCalc);
             this.groupBoxIntegInputDataForCalc.Controls.Add(this.label4);
             this.groupBoxIntegInputDataForCalc.Controls.Add(this.label2);
             this.groupBoxIntegInputDataForCalc.Controls.Add(this.label3);
             this.groupBoxIntegInputDataForCalc.Controls.Add(this.label1);
-            this.groupBoxIntegInputDataForCalc.Controls.Add(this.InputIntegLowLimit);
-            this.groupBoxIntegInputDataForCalc.Controls.Add(this.OutputIntegCalc);
-            this.groupBoxIntegInputDataForCalc.Controls.Add(this.InputIntegUpLimit);
-            this.groupBoxIntegInputDataForCalc.Controls.Add(this.InputIntegSegments);
+            this.groupBoxIntegInputDataForCalc.Controls.Add(this.LowLimit);
+            this.groupBoxIntegInputDataForCalc.Controls.Add(this.Res);
+            this.groupBoxIntegInputDataForCalc.Controls.Add(this.UpLimit);
+            this.groupBoxIntegInputDataForCalc.Controls.Add(this.Segments);
             this.groupBoxIntegInputDataForCalc.Font = new System.Drawing.Font("Baskerville Old Face", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBoxIntegInputDataForCalc.Location = new System.Drawing.Point(235, 381);
             this.groupBoxIntegInputDataForCalc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -169,31 +169,31 @@ namespace KP
             this.label5.TabIndex = 12;
             this.label5.Text = "Точность =";
             // 
-            // buttonIntegResetTextBox
+            // buttonResetTextbox
             // 
-            this.buttonIntegResetTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.buttonIntegResetTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonIntegResetTextBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonIntegResetTextBox.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(200)));
-            this.buttonIntegResetTextBox.ForeColor = System.Drawing.Color.White;
-            this.buttonIntegResetTextBox.Location = new System.Drawing.Point(324, 186);
-            this.buttonIntegResetTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonIntegResetTextBox.Name = "buttonIntegResetTextBox";
-            this.buttonIntegResetTextBox.Size = new System.Drawing.Size(133, 55);
-            this.buttonIntegResetTextBox.TabIndex = 5;
-            this.buttonIntegResetTextBox.Text = "Сбросить";
-            this.buttonIntegResetTextBox.UseVisualStyleBackColor = false;
-            this.buttonIntegResetTextBox.Click += new System.EventHandler(this.buttonIntegResetTextBox_Click);
+            this.buttonResetTextbox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonResetTextbox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonResetTextbox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonResetTextbox.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(200)));
+            this.buttonResetTextbox.ForeColor = System.Drawing.Color.White;
+            this.buttonResetTextbox.Location = new System.Drawing.Point(324, 186);
+            this.buttonResetTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonResetTextbox.Name = "buttonResetTextbox";
+            this.buttonResetTextbox.Size = new System.Drawing.Size(133, 55);
+            this.buttonResetTextbox.TabIndex = 5;
+            this.buttonResetTextbox.Text = "Сбросить";
+            this.buttonResetTextbox.UseVisualStyleBackColor = false;
+            this.buttonResetTextbox.Click += new System.EventHandler(this.buttonIntegResetTextBox_Click);
             // 
-            // InputIntegEps
+            // Eps
             // 
-            this.InputIntegEps.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.InputIntegEps.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.InputIntegEps.Location = new System.Drawing.Point(451, 29);
-            this.InputIntegEps.Name = "InputIntegEps";
-            this.InputIntegEps.Size = new System.Drawing.Size(146, 27);
-            this.InputIntegEps.TabIndex = 11;
-            this.InputIntegEps.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputIntegEps_KeyPress);
+            this.Eps.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Eps.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Eps.Location = new System.Drawing.Point(451, 29);
+            this.Eps.Name = "Eps";
+            this.Eps.Size = new System.Drawing.Size(146, 27);
+            this.Eps.TabIndex = 11;
+            this.Eps.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputIntegEps_KeyPress);
             // 
             // label4
             // 
@@ -235,19 +235,19 @@ namespace KP
             this.label1.TabIndex = 0;
             this.label1.Text = "Нижний предел  =";
             // 
-            // OutputIntegCalc
+            // Res
             // 
-            this.OutputIntegCalc.BackColor = System.Drawing.SystemColors.Window;
-            this.OutputIntegCalc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.OutputIntegCalc.Cursor = System.Windows.Forms.Cursors.Default;
-            this.OutputIntegCalc.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OutputIntegCalc.Location = new System.Drawing.Point(237, 124);
-            this.OutputIntegCalc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.OutputIntegCalc.Name = "OutputIntegCalc";
-            this.OutputIntegCalc.ReadOnly = true;
-            this.OutputIntegCalc.Size = new System.Drawing.Size(220, 27);
-            this.OutputIntegCalc.TabIndex = 3;
-            this.OutputIntegCalc.TabStop = false;
+            this.Res.BackColor = System.Drawing.SystemColors.Window;
+            this.Res.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Res.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Res.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Res.Location = new System.Drawing.Point(237, 124);
+            this.Res.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Res.Name = "Res";
+            this.Res.ReadOnly = true;
+            this.Res.Size = new System.Drawing.Size(220, 27);
+            this.Res.TabIndex = 3;
+            this.Res.TabStop = false;
             // 
             // buttonIntegBackToMenu
             // 
@@ -292,20 +292,20 @@ namespace KP
 
         #endregion
 
-        private System.Windows.Forms.TextBox InputIntegLowLimit;
-        private System.Windows.Forms.TextBox InputIntegUpLimit;
-        private System.Windows.Forms.TextBox InputIntegSegments;
-        private System.Windows.Forms.Button buttonIntegCalc;
+        private System.Windows.Forms.TextBox LowLimit;
+        private System.Windows.Forms.TextBox UpLimit;
+        private System.Windows.Forms.TextBox Segments;
+        private System.Windows.Forms.Button buttonCalc;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartInteg;
         private System.Windows.Forms.GroupBox groupBoxIntegInputDataForCalc;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox OutputIntegCalc;
-        private System.Windows.Forms.Button buttonIntegResetTextBox;
+        private System.Windows.Forms.TextBox Res;
+        private System.Windows.Forms.Button buttonResetTextbox;
         private System.Windows.Forms.Button buttonIntegBackToMenu;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox InputIntegEps;
+        private System.Windows.Forms.TextBox Eps;
     }
 }

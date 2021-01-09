@@ -19,74 +19,68 @@ namespace KP
         }
         public class ChartData
         {
-            public string manufact { get; set; }
-            public double price { get; set; }
+            public string name { get; set; } //название препарата
+            public double price { get; set; } //цена препарата
         }
         private void AptekaChart_Load(object sender, EventArgs e)
         {
-            try
+            string path = @"..\..\..\apteka.txt"; //путь к файлу с данными
+            int N = 1;
+            if (new FileInfo(path).Length == 0) //проверка на пустоту файла
             {
-                string path = @"..\..\..\apteka.txt";
-                int N = 1;
-                if (new FileInfo(path).Length == 0)
+                throw new Exception("Файл пустой!");
+            }
+            List<ChartData> dat = new List<ChartData>(); //создание списка полей для построения диаграммы
+            chart1.ChartAreas[0].AxisX.MajorGrid.Enabled = false;  //удаление осей Y на диаграмме
+            chart1.ChartAreas[0].AxisX.MinorGrid.Enabled = false;
+            using (StreamReader reader1 = new StreamReader(path))
+            {
+                string str1;
+                while ((str1 = reader1.ReadLine()) != null) //подсчёт количества структур 
                 {
-                    throw new Exception("Файл пустой!");
-                }
-                List<ChartData> dat = new List<ChartData>();
-                chart1.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
-                chart1.ChartAreas[0].AxisX.MinorGrid.Enabled = false;
-                using (StreamReader reader1 = new StreamReader(path))
-                {
-                    string str1;
-                    while ((str1 = reader1.ReadLine()) != null)
+                    if (str1.Contains('/'))
                     {
-                        if (str1.Contains('/'))
+                        N++;
+                    }
+                }
+                reader1.Close();
+            }
+            using (StreamReader reader2 = new StreamReader(path))
+            {
+                string manuf, pr, line;
+                for (int i = 0; i < N; i++)
+                {
+                    while ((line = reader2.ReadLine()) != null) //запись значений из файла в поля для построения диаграммы
+                    {
+                        if (line.Contains("Название препарата:"))
                         {
-                            N++;
+                            manuf = line;
+                            manuf = manuf.Substring(manuf.IndexOf(':') + 1).Replace(" ", "");
+                            dat.Add(new ChartData
+                            {
+                                name = manuf
+                            });
+                        }
+                        if (line.Contains("Цена со скидкой (руб.):"))
+                        {
+                            pr = line;
+                            pr = pr.Substring(pr.IndexOf(':') + 1).Replace(" ", "");
+                            dat.Add(new ChartData
+                            {
+                                price = Convert.ToDouble(pr)
+                            });
+                        }
+                        if (line.Contains('/'))
+                        {
+                            chart1.Series["Series1"].Points.AddXY(dat[0].name, dat[1].price); //построение области на диаграмме
+                            dat.Clear();
+                            break;
                         }
                     }
-                    reader1.Close();
                 }
-                using (StreamReader reader2 = new StreamReader(path))
-                {
-                    string manuf, pr, line;
-                    for (int i = 0; i < N; i++)
-                    {
-                        while ((line = reader2.ReadLine()) != null)
-                        {
-                            if (line.Contains("Название препарата:"))
-                            {
-                                manuf = line;
-                                manuf = manuf.Substring(manuf.IndexOf(':') + 1).Replace(" ", "");
-                                dat.Add(new ChartData
-                                {
-                                    manufact = manuf
-                                });
-                            }
-                            if (line.Contains("Цена со скидкой (руб.):"))
-                            {
-                                pr = line;
-                                pr = pr.Substring(pr.IndexOf(':') + 1).Replace(" ", "");
-                                dat.Add(new ChartData
-                                {
-                                    price = Convert.ToDouble(pr)
-                                });
-                            }
-                            if (line.Contains('/'))
-                            {
-                                chart1.Series["Series1"].Points.AddXY(dat[0].manufact, dat[1].price);
-                                dat.Clear();
-                                break;
-                            }
-                        }
-                    }
-                    reader2.Close();
-                }
+                reader2.Close();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            
         }
     }
 }

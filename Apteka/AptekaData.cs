@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Apteka
 {
-    public struct Apteka //структура, содержащая поля 
+    public struct Apteka //структура, содержащая поля
     {
         public string name; //название 
         public string manufact; // производитель
@@ -28,12 +28,12 @@ namespace Apteka
             for (int i = 0; i < N; i++)
             {
                 Console.WriteLine();
-             a1: //метка для возврата если введены не буквы
+            a1: //метка для возврата если введены не буквы
                 Console.Write("Название препарата: ");
                 p[i].name = Console.ReadLine();
                 foreach (char c in p[i].name) //цикл для проверки ввода только букв
                 {
-                    if (char.IsLetter(c)) 
+                    if (char.IsLetter(c))
                     {
                         d[i].name = p[i].name;
                     }
@@ -42,9 +42,9 @@ namespace Apteka
                         Show("Строка должна содержать только буквы!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); //вызов функции показа сообщения
                         Console.WriteLine("----------------------");
                         goto a1;
-                    }                   
+                    }
                 }
-             a2: //метка для возврата если введены не буквы
+            a2: //метка для возврата если введены не буквы
                 Console.Write("Производитель: ");
                 p[i].manufact = Console.ReadLine();
                 foreach (char c in p[i].manufact) //цикл для проверки ввода только букв
@@ -62,7 +62,7 @@ namespace Apteka
                 }
             a3: //метка для возврата если введены не цифры
                 Console.Write("Цена (руб.): ");
-                if(!double.TryParse(Console.ReadLine(), out p[i].price)) //условие для проверки ввода только цифр
+                if (!double.TryParse(Console.ReadLine(), out p[i].price)) //условие для проверки ввода только цифр
                 {
                     Show("Нужно ввести число!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); //вызов функции показа сообщения
                     Console.WriteLine("----------------------");
@@ -78,7 +78,7 @@ namespace Apteka
                     Console.WriteLine("----------------------");
                     goto a3;
                 }
-             a4: //метка для возврата если введены не цифры
+            a4: //метка для возврата если введены не цифры
                 Console.Write("Скидка (%): ");
                 if (!int.TryParse(Console.ReadLine(), out p[i].discount))  //условие для проверки ввода только цифр
                 {
@@ -105,7 +105,7 @@ namespace Apteka
         {
             int i = N - 1;
             Console.WriteLine();
-         a1: //метка для возврата если введены не буквы
+        a1: //метка для возврата если введены не буквы
             Console.Write("Название препарата: ");
             p[i].name = Console.ReadLine();
             foreach (char c in p[i].name)
@@ -122,10 +122,10 @@ namespace Apteka
                 }
 
             }
-         a2: //метка для возврата если введены не буквы
+        a2: //метка для возврата если введены не буквы
             Console.Write("Производитель: ");
             p[i].manufact = Console.ReadLine();
-            foreach (char c in p[i].manufact) 
+            foreach (char c in p[i].manufact)
             {
                 if (char.IsLetter(c)) //цикл для проверки ввода только букв
                 {
@@ -139,7 +139,7 @@ namespace Apteka
                 }
 
             }
-         a3: //метка для возврата если введены не цифры
+        a3: //метка для возврата если введены не цифры
             Console.Write("Цена (руб.): ");
             if (!double.TryParse(Console.ReadLine(), out p[i].price)) //условие для проверки ввода только цифр
             {
@@ -157,7 +157,7 @@ namespace Apteka
                 Console.WriteLine("----------------------");
                 goto a3;
             }
-         a4: //метка для возврата если введены не цифры
+        a4: //метка для возврата если введены не цифры
             Console.Write("Скидка (%): ");
             if (!int.TryParse(Console.ReadLine(), out p[i].discount)) //условие для проверки ввода только цифр
             {
@@ -228,7 +228,7 @@ namespace Apteka
                     {
                         if (line.Contains("Название препарата:"))
                         {
-                            line = line.Substring(line.IndexOf(':') + 1); 
+                            line = line.Substring(line.IndexOf(':') + 1);
                             d[i].name = line.Replace(" ", "");
                         }
                         if (line.Contains("Производитель:"))
@@ -291,7 +291,7 @@ namespace Apteka
             for (int t = 0; t < count.Length; t++) // увеличение "t" на 1, пока она не больше размера (k) массива ключей
             {                                      // если t равна элементу в массиве ключей, то полю "цена"
                 for (int w = 0; w < count[t]; w++) //  присвоить значение "t" с индексом "index"
-                {    
+                {
                     for (int i = N - 1; i > 0; i--) //шаги по строкам
                     {
                         for (int j = 0; j < i; j++) //шаги по столбцам

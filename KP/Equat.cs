@@ -40,40 +40,40 @@ namespace KP
         }
         private void Equat_Load(object sender, EventArgs e) //событие загрузки формы
         {
-            InputEquatX0.MaxLength = 4;    //установка размера строки некоторым textbox-ам
-            InputEquatEps.MaxLength = 15;
+            X0.MaxLength = 4;    //установка размера строки некоторым textbox-ам
+            Eps.MaxLength = 15;
             buttonEquatBackToMenu.FlatAppearance.BorderSize = 0;
             buttonEquatBackToMenu.FlatStyle = FlatStyle.Flat;
             CreateChartEquat(1,5,1); //вызов функции построения графика
         }
         private void buttonEquatResetTextBox_Click(object sender, EventArgs e) //событие нажатия кнопки "Сбросить"
         {
-            InputEquatEps.Text = string.Empty;   //обнуление всех textbox-ов
-            OutputEquatN.Text = string.Empty;
-            OutputEquatRes.Text = string.Empty;
-            InputEquatX0.Text = string.Empty;
+            Eps.Text = string.Empty;   //обнуление всех textbox-ов
+            N.Text = string.Empty;
+            Res.Text = string.Empty;
+            X0.Text = string.Empty;
         }
         private void buttonEquatCalc_Click(object sender, EventArgs e) //событие нажатия кнопки "Рассчитать"
         {
             try
             {   //проверка на ввод в textbox-ы определённых значений
-                if ((InputEquatX0.Text == string.Empty) || (InputEquatEps.Text == string.Empty))
+                if ((X0.Text == string.Empty) || (Eps.Text == string.Empty))
                 {
                     throw new Exception("Введены не все данные для расчёта!");
                 }
-                if (Convert.ToDouble(InputEquatEps.Text) == 0 || Convert.ToDouble(InputEquatEps.Text) > 1)
+                if (Convert.ToDouble(Eps.Text) == 0 || Convert.ToDouble(Eps.Text) > 1)
                 {
-                    InputEquatEps.Text = string.Empty;
+                    Eps.Text = string.Empty;
                     throw new Exception("Точность не может быть больше 1 или равняться нулю");
                 }
-                if (Convert.ToDouble(InputEquatX0.Text) <= 0 || Convert.ToDouble(InputEquatX0.Text) > 4)
+                if (Convert.ToDouble(X0.Text) <= 0 || Convert.ToDouble(X0.Text) > 4)
                 {
-                    InputEquatX0.Text = string.Empty;
+                    X0.Text = string.Empty;
                     throw new Exception("Корень должен входить в интервал от 0 до 4!");
                 }
-                Equation.CalcEquat(Convert.ToDouble(InputEquatX0.Text), Convert.ToDouble(InputEquatEps.Text), out double res, out int nres); //вызов функции расчёта уравнения
-                OutputEquatRes.Text = res.ToString(); //присваивание textbox-ам результата переменных "Res" и "nRes"
-                OutputEquatN.Text = nres.ToString();
+                Equation.CalcEquat(Convert.ToDouble(X0.Text), Convert.ToDouble(Eps.Text), out double res, out int nres); //вызов функции расчёта уравнения
+                Res.Text = res.ToString(); //присваивание textbox-ам результата переменных "Res" и "nRes"
+                N.Text = nres.ToString();
             }
             catch (Exception ex)
             {
