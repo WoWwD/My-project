@@ -13,7 +13,7 @@ namespace KP
 {
     public partial class Integ : Form
     {
-        public void CreateChartInteg(int a, int b, double n, int o) //функция построения графика
+        public void CreateChartInteg(int a, int b, double n, int o) //функция для построения графика
         {
             double x, y;
             chartInteg.Series[0].Points.Clear();

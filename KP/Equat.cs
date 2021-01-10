@@ -42,8 +42,8 @@ namespace KP
         {
             X0.MaxLength = 4;    //установка размера строки некоторым textbox-ам
             Eps.MaxLength = 15;
-            buttonEquatBackToMenu.FlatAppearance.BorderSize = 0;
-            buttonEquatBackToMenu.FlatStyle = FlatStyle.Flat;
+            buttonBackToMenu.FlatAppearance.BorderSize = 0;
+            buttonBackToMenu.FlatStyle = FlatStyle.Flat;
             CreateChartEquat(1,5,1); //вызов функции построения графика
         }
         private void buttonEquatResetTextBox_Click(object sender, EventArgs e) //событие нажатия кнопки "Сбросить"

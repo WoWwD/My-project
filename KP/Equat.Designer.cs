@@ -40,12 +40,12 @@ namespace KP
             this.Eps = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBoxInputEquatDataForCalc = new System.Windows.Forms.GroupBox();
-            this.ResetTextbox = new System.Windows.Forms.Button();
+            this.buttonResetTextbox = new System.Windows.Forms.Button();
             this.X0 = new System.Windows.Forms.TextBox();
-            this.Calc = new System.Windows.Forms.Button();
+            this.buttonCalc = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.chartEquat = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.buttonEquatBackToMenu = new System.Windows.Forms.Button();
+            this.buttonBackToMenu = new System.Windows.Forms.Button();
             this.groupBoxInputEquatDataForCalc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartEquat)).BeginInit();
             this.SuspendLayout();
@@ -122,9 +122,9 @@ namespace KP
             // groupBoxInputEquatDataForCalc
             // 
             this.groupBoxInputEquatDataForCalc.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.groupBoxInputEquatDataForCalc.Controls.Add(this.ResetTextbox);
+            this.groupBoxInputEquatDataForCalc.Controls.Add(this.buttonResetTextbox);
             this.groupBoxInputEquatDataForCalc.Controls.Add(this.X0);
-            this.groupBoxInputEquatDataForCalc.Controls.Add(this.Calc);
+            this.groupBoxInputEquatDataForCalc.Controls.Add(this.buttonCalc);
             this.groupBoxInputEquatDataForCalc.Controls.Add(this.label9);
             this.groupBoxInputEquatDataForCalc.Controls.Add(this.Res);
             this.groupBoxInputEquatDataForCalc.Controls.Add(this.Eps);
@@ -142,23 +142,23 @@ namespace KP
             this.groupBoxInputEquatDataForCalc.TabStop = false;
             this.groupBoxInputEquatDataForCalc.Text = "Ввод значений";
             // 
-            // ResetTextbox
+            // buttonResetTextbox
             // 
-            this.ResetTextbox.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ResetTextbox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ResetTextbox.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.ResetTextbox.FlatAppearance.BorderSize = 4;
-            this.ResetTextbox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ResetTextbox.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(200)));
-            this.ResetTextbox.ForeColor = System.Drawing.Color.White;
-            this.ResetTextbox.Location = new System.Drawing.Point(343, 170);
-            this.ResetTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ResetTextbox.Name = "ResetTextbox";
-            this.ResetTextbox.Size = new System.Drawing.Size(133, 55);
-            this.ResetTextbox.TabIndex = 4;
-            this.ResetTextbox.Text = "Сбросить";
-            this.ResetTextbox.UseVisualStyleBackColor = false;
-            this.ResetTextbox.Click += new System.EventHandler(this.buttonEquatResetTextBox_Click);
+            this.buttonResetTextbox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonResetTextbox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonResetTextbox.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.buttonResetTextbox.FlatAppearance.BorderSize = 4;
+            this.buttonResetTextbox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonResetTextbox.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(200)));
+            this.buttonResetTextbox.ForeColor = System.Drawing.Color.White;
+            this.buttonResetTextbox.Location = new System.Drawing.Point(343, 170);
+            this.buttonResetTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonResetTextbox.Name = "buttonResetTextbox";
+            this.buttonResetTextbox.Size = new System.Drawing.Size(133, 55);
+            this.buttonResetTextbox.TabIndex = 4;
+            this.buttonResetTextbox.Text = "Сбросить";
+            this.buttonResetTextbox.UseVisualStyleBackColor = false;
+            this.buttonResetTextbox.Click += new System.EventHandler(this.buttonEquatResetTextBox_Click);
             // 
             // X0
             // 
@@ -171,23 +171,23 @@ namespace KP
             this.X0.TabIndex = 6;
             this.X0.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputEquatX0_KeyPress);
             // 
-            // Calc
+            // buttonCalc
             // 
-            this.Calc.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Calc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Calc.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.Calc.FlatAppearance.BorderSize = 4;
-            this.Calc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Calc.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(200)));
-            this.Calc.ForeColor = System.Drawing.Color.White;
-            this.Calc.Location = new System.Drawing.Point(343, 48);
-            this.Calc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Calc.Name = "Calc";
-            this.Calc.Size = new System.Drawing.Size(133, 55);
-            this.Calc.TabIndex = 3;
-            this.Calc.Text = "Рассчитать";
-            this.Calc.UseVisualStyleBackColor = false;
-            this.Calc.Click += new System.EventHandler(this.buttonEquatCalc_Click);
+            this.buttonCalc.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonCalc.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonCalc.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.buttonCalc.FlatAppearance.BorderSize = 4;
+            this.buttonCalc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonCalc.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(200)));
+            this.buttonCalc.ForeColor = System.Drawing.Color.White;
+            this.buttonCalc.Location = new System.Drawing.Point(343, 48);
+            this.buttonCalc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonCalc.Name = "buttonCalc";
+            this.buttonCalc.Size = new System.Drawing.Size(133, 55);
+            this.buttonCalc.TabIndex = 3;
+            this.buttonCalc.Text = "Рассчитать";
+            this.buttonCalc.UseVisualStyleBackColor = false;
+            this.buttonCalc.Click += new System.EventHandler(this.buttonEquatCalc_Click);
             // 
             // label9
             // 
@@ -228,23 +228,23 @@ namespace KP
             title1.TextStyle = System.Windows.Forms.DataVisualization.Charting.TextStyle.Shadow;
             this.chartEquat.Titles.Add(title1);
             // 
-            // buttonEquatBackToMenu
+            // buttonBackToMenu
             // 
-            this.buttonEquatBackToMenu.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonEquatBackToMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonEquatBackToMenu.BackgroundImage")));
-            this.buttonEquatBackToMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonEquatBackToMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonEquatBackToMenu.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonEquatBackToMenu.FlatAppearance.BorderSize = 0;
-            this.buttonEquatBackToMenu.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonEquatBackToMenu.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonEquatBackToMenu.Location = new System.Drawing.Point(12, 12);
-            this.buttonEquatBackToMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonEquatBackToMenu.Name = "buttonEquatBackToMenu";
-            this.buttonEquatBackToMenu.Size = new System.Drawing.Size(29, 30);
-            this.buttonEquatBackToMenu.TabIndex = 9;
-            this.buttonEquatBackToMenu.UseVisualStyleBackColor = false;
-            this.buttonEquatBackToMenu.Click += new System.EventHandler(this.buttonEquatBackToMenu_Click);
+            this.buttonBackToMenu.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonBackToMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonBackToMenu.BackgroundImage")));
+            this.buttonBackToMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonBackToMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonBackToMenu.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonBackToMenu.FlatAppearance.BorderSize = 0;
+            this.buttonBackToMenu.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonBackToMenu.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonBackToMenu.Location = new System.Drawing.Point(12, 12);
+            this.buttonBackToMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonBackToMenu.Name = "buttonBackToMenu";
+            this.buttonBackToMenu.Size = new System.Drawing.Size(29, 30);
+            this.buttonBackToMenu.TabIndex = 9;
+            this.buttonBackToMenu.UseVisualStyleBackColor = false;
+            this.buttonBackToMenu.Click += new System.EventHandler(this.buttonEquatBackToMenu_Click);
             // 
             // Equat
             // 
@@ -252,7 +252,7 @@ namespace KP
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1083, 654);
-            this.Controls.Add(this.buttonEquatBackToMenu);
+            this.Controls.Add(this.buttonBackToMenu);
             this.Controls.Add(this.chartEquat);
             this.Controls.Add(this.groupBoxInputEquatDataForCalc);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -277,10 +277,10 @@ namespace KP
         private System.Windows.Forms.TextBox Eps;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBoxInputEquatDataForCalc;
-        private System.Windows.Forms.Button ResetTextbox;
-        private System.Windows.Forms.Button Calc;
+        private System.Windows.Forms.Button buttonResetTextbox;
+        private System.Windows.Forms.Button buttonCalc;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartEquat;
-        private System.Windows.Forms.Button buttonEquatBackToMenu;
+        private System.Windows.Forms.Button buttonBackToMenu;
         private System.Windows.Forms.TextBox X0;
         private System.Windows.Forms.Label label9;
     }
