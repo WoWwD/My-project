@@ -20,7 +20,7 @@ namespace KP
         {
             if (e.KeyCode == Keys.D1) //если нажата клавиша "1", то запустится консоль
             {
-                System.Diagnostics.Process.Start(Application.StartupPath + @"..\..\..\..\Apteka\bin\Debug\Apteka.exe");
+                //System.Diagnostics.Process.Start(Application.StartupPath + @"..\..\..\..\Apteka\bin\Debug\Apteka.exe");
             }
             if (e.KeyCode == Keys.D2) //если нажата клавиша "2", то запустится форма с интегралом
             {
