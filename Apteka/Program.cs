@@ -173,10 +173,10 @@ namespace Apteka
                 }
                 case ConsoleKey.D9: //если будет нажата клавиша "9", то выполнится запуск диаграммы
                 {
-                        Application.EnableVisualStyles();
-                        Application.Run(new KP.AptekaChart());
-                    Console.Clear();
-                    goto Menu; 
+                       // Application.EnableVisualStyles();
+                       // Application.Run(new KP.AptekaChart());
+                   // Console.Clear();
+                   // goto Menu; 
                 }
                 case ConsoleKey.Escape: //если будет нажата клавиша "Escape", то будет осуществлён выход из программы
                 { 
