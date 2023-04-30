@@ -1,4 +1,4 @@
-# My-project
+# My project
 
 The project includes two programs. 
 The first one is made in the console and it's a pharmacy where there are various commands for working with data (adding, searching, sorting, etc.). 
